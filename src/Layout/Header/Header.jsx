@@ -13,18 +13,23 @@ export const Header = () => {
           {/* ФОРМА С ИНПУТОМ И ВЫБОРОМ   */}
           <form className={s.header__form}>
             {/* INPUT   */}
-            <label for="input">
+            <label htmlFor="input">
               <span>Name</span>
               <input
+                onChange={(ev) => console.log(ev.target.value)}
                 className={s.form__input}
                 id="input"
                 placeholder="Hermione"
               />
             </label>
             {/* SELECT   */}
-            <label for="select">
+            <label htmlFor="select">
               <span>School</span>
-              <select className={`${s.form__input} ${s.select}`} id="select">
+              <select
+                onClick={() => console.log("click select")}
+                className={`${s.form__input} ${s.select}`}
+                id="select"
+              >
                 <option value="">Choose one</option>
                 <option value="Gryffindor">Gryffindor</option>
                 <option value="Slytherin">Slytherin</option>

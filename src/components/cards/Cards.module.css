@@ -1,0 +1,40 @@
+.cards__item {
+  width: 334px;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+.item__title {
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.item__text {
+  padding: 24px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+img {
+  display: block;
+  object-fit: cover;
+  object-position: top;
+  height: 350px;
+}
+
+@media (max-width: 767px) {
+  .cards__wrapper {
+    flex-direction: column;
+  }
+  .cards__item {
+    margin: 0 auto;
+  }
+  .container {
+    width: 85%;
+  }
+}
