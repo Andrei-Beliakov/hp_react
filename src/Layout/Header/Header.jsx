@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Header.module.css";
 
-export const Header = () => {
+export const Header = ({ inputValue, setInput, selectValue, setSelect }) => {
   return (
     <>
       <header className={s.header}>
@@ -16,8 +16,9 @@ export const Header = () => {
             <label htmlFor="input">
               <span>Name</span>
               <input
-                onChange={(ev) => console.log(ev.target.value)}
+                onChange={(ev) => setInput(ev.target.value)}
                 className={s.form__input}
+                value={inputValue}
                 id="input"
                 placeholder="Hermione"
               />
@@ -26,8 +27,9 @@ export const Header = () => {
             <label htmlFor="select">
               <span>School</span>
               <select
-                onClick={() => console.log("click select")}
+                onChange={(ev) => setSelect(ev.target.value)}
                 className={`${s.form__input} ${s.select}`}
+                // value={selectValue}
                 id="select"
               >
                 <option value="">Choose one</option>

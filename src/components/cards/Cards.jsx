@@ -13,7 +13,7 @@ export const Cards = ({
 }) => {
   return (
     <>
-      <div className={s.cards__item} key={id}>
+      <div className={s.cards__item}>
         <img src={image} alt="" />
         <div className={s.item__text}>
           <p className={s.item__title}>{name}</p>
