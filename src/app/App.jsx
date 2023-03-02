@@ -1,14 +1,14 @@
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import { data } from "../data/data.js";
-import { Layout } from "../Layout/Layout";
-import { Wrapper } from "../components/wrapper/Wrapper";
-import { Card } from "../components/card/Card.jsx";
+import { Home } from "../pages/Home/Home";
+import { Favorites } from "../pages/Favorites/Favorites";
 
 function App() {
   const [inputValue, setInput] = useState("");
   const [selectValue, setSelect] = useState("");
   const [likedArr, setLikedArr] = useState([]);
-  console.log(likedArr);
+
   const likeOn = (name) => {
     setLikedArr([...likedArr, name]);
   };
@@ -24,33 +24,38 @@ function App() {
       el.name.trim().toLowerCase().includes(inputValue.toLowerCase())
     );
 
+  let likeSelectData = selectData.filter((el) => likedArr.includes(el.name));
+
   return (
-    <>
-      <Layout
-        inputValue={inputValue}
-        setInput={setInput}
-        selectValue={selectValue}
-        setSelect={setSelect}
-      >
-        <Wrapper>
-          {selectData.map((el, i) => (
-            <Card
-              isLiked={likedArr.includes(el.name)}
-              likeOn={likeOn}
-              likeOff={likeOff}
-              key={i}
-              image={el.image}
-              name={el.name}
-              actor={el.actor}
-              gender={el.gender}
-              house={el.house}
-              wand={el.wand}
-              alive={el.alive ? "yes" : "no"}
-            />
-          ))}
-        </Wrapper>
-      </Layout>
-    </>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Home
+            inputValue={inputValue}
+            setInput={setInput}
+            selectValue={selectValue}
+            setSelect={setSelect}
+            likeOn={likeOn}
+            likeOff={likeOff}
+            likedArr={likedArr}
+            selectData={selectData}
+          />
+        }
+      />
+      <Route
+        path="/favorites"
+        element={
+          <Favorites
+            setSelect={setSelect}
+            likeOn={likeOn}
+            likeOff={likeOff}
+            likedArr={likedArr}
+            likeSelectData={likeSelectData}
+          />
+        }
+      ></Route>
+    </Routes>
   );
 }
 
