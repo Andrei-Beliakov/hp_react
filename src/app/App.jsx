@@ -2,14 +2,21 @@ import { useState } from "react";
 import { data } from "../data/data.js";
 import { Layout } from "../Layout/Layout";
 import { Wrapper } from "../components/wrapper/Wrapper";
-import { Cards } from "../components/cards/Cards.jsx";
+import { Card } from "../components/card/Card.jsx";
 
 function App() {
   const [inputValue, setInput] = useState("");
   const [selectValue, setSelect] = useState("");
+  const [likedArr, setLikedArr] = useState([]);
+  console.log(likedArr);
+  const likeOn = (name) => {
+    setLikedArr([...likedArr, name]);
+  };
+  const likeOff = (name) => {
+    setLikedArr(likedArr.filter((el) => el !== name));
+  };
 
-  let selectData = [];
-  selectData = data
+  let selectData = data
     .filter((el) =>
       el.house.trim().toLowerCase().includes(selectValue.toLowerCase())
     )
@@ -27,7 +34,10 @@ function App() {
       >
         <Wrapper>
           {selectData.map((el, i) => (
-            <Cards
+            <Card
+              isLiked={likedArr.includes(el.name)}
+              likeOn={likeOn}
+              likeOff={likeOff}
               key={i}
               image={el.image}
               name={el.name}

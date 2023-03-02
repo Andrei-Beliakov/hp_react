@@ -1,8 +1,9 @@
 import React from "react";
-import s from "./Cards.module.css";
+import s from "./Card.module.css";
+import like_img from "./like.svg";
+import dislike_img from "./dislike.svg";
 
-export const Cards = ({
-  id,
+export const Card = ({
   image,
   name,
   actor,
@@ -10,10 +11,24 @@ export const Cards = ({
   house,
   wand,
   alive,
+  isLiked,
+  likeOn,
+  likeOff,
 }) => {
   return (
     <>
       <div className={s.cards__item}>
+        <button
+          className={s.item__btn}
+          onClick={() => {
+            // console.log(`${!isLiked}_like`);
+            console.log(isLiked);
+            isLiked ? likeOff(name) : likeOn(name);
+          }}
+        >
+          <img className={s.like__img} src={isLiked ? like_img : dislike_img} />
+        </button>
+
         <img src={image} alt="" />
         <div className={s.item__text}>
           <p className={s.item__title}>{name}</p>
