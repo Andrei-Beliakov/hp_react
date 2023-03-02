@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-import { data } from "../data/data.js";
+// import { data } from "../data/data.js";
 import { Home } from "../pages/Home/Home";
 import { Favorites } from "../pages/Favorites/Favorites";
 
+const savedLikesArr = JSON.parse(localStorage.getItem("LikedNames")) ?? [];
+
 function App() {
+  const [data, setData] = useState([]);
   const [inputValue, setInput] = useState("");
   const [selectValue, setSelect] = useState("");
-  const [likedArr, setLikedArr] = useState([]);
+  const [likedArr, setLikedArr] = useState(savedLikesArr);
 
   const likeOn = (name) => {
     setLikedArr([...likedArr, name]);
@@ -25,6 +28,16 @@ function App() {
     );
 
   let likeSelectData = selectData.filter((el) => likedArr.includes(el.name));
+
+  useEffect(() => {
+    fetch("https://hp-api.onrender.com/api/characters")
+      .then((response) => response.json())
+      .then((data) => setData(data));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("LikedNames", JSON.stringify(likedArr));
+  }, [likedArr]);
 
   return (
     <Routes>
