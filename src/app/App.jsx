@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
-// import { data } from "../data/data.js";
 import { Home } from "../pages/Home/Home";
 import { Favorites } from "../pages/Favorites/Favorites";
 
@@ -11,6 +10,8 @@ function App() {
   const [inputValue, setInput] = useState("");
   const [selectValue, setSelect] = useState("");
   const [likedArr, setLikedArr] = useState(savedLikesArr);
+
+  console.log(likedArr);
 
   const likeOn = (name) => {
     setLikedArr([...likedArr, name]);
