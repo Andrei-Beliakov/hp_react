@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/hp_react%20/static/css/main.7251abb5.css",
+    "main.js": "/hp_react%20/static/js/main.080da847.js",
+    "index.html": "/hp_react%20/index.html",
+    "static/media/dislike.svg": "/hp_react%20/static/media/dislike.cfb3374a8739fefc1f544bf034a5b662.svg",
+    "static/media/like.svg": "/hp_react%20/static/media/like.780ebc7d4c10690fda53cf4761560d8c.svg",
+    "main.7251abb5.css.map": "/hp_react%20/static/css/main.7251abb5.css.map",
+    "main.080da847.js.map": "/hp_react%20/static/js/main.080da847.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7251abb5.css",
+    "static/js/main.080da847.js"
+  ]
+}
