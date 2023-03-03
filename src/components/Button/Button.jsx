@@ -7,9 +7,9 @@ export const Button = () => {
   return (
     <>
       <div className={s.btn}>
-        <Link to="/favorites">
+        <Link to="/favorites" className={s.btn__link}>
           <div className={s.btn__wrap}>
-            <img className={s.btn__img} src={like_img} /> <p>Show Liked</p>
+            <img className={s.btn__img} src={like_img} /> <p> Show Liked</p>
           </div>
         </Link>
       </div>

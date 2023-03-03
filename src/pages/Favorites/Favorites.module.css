@@ -1,0 +1,35 @@
+.header {
+  text-align: left;
+  position: relative;
+  padding: 116px 0 32px;
+  border-bottom: 1px solid #dee2e6;
+  max-width: 688px;
+  margin: 0 auto;
+}
+
+.header__title {
+  font-size: 52px;
+  line-height: 63px;
+
+  font-weight: 700;
+  color: #000000;
+}
+
+.header__subtitle {
+  font-size: 21px;
+  line-height: 36px;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 48px;
+}
+
+.back__link {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+}
